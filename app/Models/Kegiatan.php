@@ -14,5 +14,6 @@ class Kegiatan extends Model
         'id',
         'title',
         'body',
+        'image'
     ];
 }
