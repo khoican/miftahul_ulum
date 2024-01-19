@@ -6,4 +6,6 @@
 
 <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo.png') }}">
 
-@vite('resources/css/app.css')
+@vite(['resources/css/app.css','resources/js/app.js'])
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
