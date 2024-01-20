@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.admin.dashboard');
 });
+Route::get('/kegiatan', function () {
+    return view('pages.admin.kegiatan.index');
+});
+Route::get('/kegiatan/create', function () {
+    return view('pages.admin.kegiatan.create');
+});
+Route::get('/kegiatan/edit', function () {
+    return view('pages.admin.kegiatan.edit');
+});
