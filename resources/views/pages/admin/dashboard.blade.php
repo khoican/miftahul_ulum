@@ -1,11 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Dashboard')
 @section('content')
-
-<header class="mb-7">
-    <h1 class="text-2xl font-bold uppercase">Dashboard</h1>
-    <p class="font-light text-sm text-slate-400">/dashboard</p>
-</header>
 
 {{-- recapitulation menu --}}
 <div class="inline-flex gap-5 w-full mb-10 flex-col lg:flex-row">
