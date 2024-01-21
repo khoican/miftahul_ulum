@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('title');
-            $table->string('body');
+            $table->longText('body');
             $table->string('image');
             $table->timestamps();
         });

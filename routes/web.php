@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,16 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.admin.dashboard');
-});
-
-Route::get('/kegiatan', function () {
-    return view('pages.admin.kegiatan.index');
-});
-Route::get('/kegiatan/create', function () {
-    return view('pages.admin.kegiatan.create');
-});
-Route::get('/kegiatan/edit', function () {
-    return view('pages.admin.kegiatan.edit');
 });
 
 Route::get('/prestasi', function () {
@@ -45,4 +36,16 @@ Route::get('/pendidikan/create', function () {
 });
 Route::get('/pendidikan/edit', function () {
     return view('pages.admin.pendidikan.edit');
+});
+
+Route::group(['prefix' => 'kegiatan'], function() {
+    Route::get('/', [KegiatanController::class, 'index'])->name('kegiatan');
+
+    Route::get('tambah-data', [KegiatanController::class, 'create'])->name('kegiatan.create');
+    Route::post('store', [KegiatanController::class, 'store'])->name('kegiatan.store');
+
+    Route::get('edit/{id}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
+    Route::put('update/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
+
+    Route::delete('delete/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.delete');
 });

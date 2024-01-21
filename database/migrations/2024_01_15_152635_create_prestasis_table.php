@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('prestasis', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid()->primary();
             $table->string('title');
-            $table->string('body');
+            $table->longText('body');
             $table->string('image');
             $table->timestamps();
         });
