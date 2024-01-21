@@ -36,3 +36,13 @@ Route::get('/prestasi/create', function () {
 Route::get('/prestasi/edit', function () {
     return view('pages.admin.prestasi.edit');
 });
+
+Route::get('/pendidikan', function () {
+    return view('pages.admin.pendidikan.index');
+});
+Route::get('/pendidikan/create', function () {
+    return view('pages.admin.pendidikan.create');
+});
+Route::get('/pendidikan/edit', function () {
+    return view('pages.admin.pendidikan.edit');
+});
