@@ -49,11 +49,14 @@ class KegiatanController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $this->validate($request, [
-            'title',
+        $validator = Validator::make($request->all(), [
             'body',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('kegiatan.edit')->withErrors($validator)->withInput();
+        }
 
         $kegiatan = Kegiatan::findOrFail($id);
 
@@ -75,7 +78,7 @@ class KegiatanController extends Controller
             ]);
         }
 
-        return redirect()->route('kegiatan')->with('success', 'Berhasil Memperbarui Kegiatan');
+        return redirect()->route('kegiatan')->with('success', 'Berhasil Memperbarui Unggahan Kegiatan');
     }
 
     public function destroy($id) {
@@ -83,6 +86,6 @@ class KegiatanController extends Controller
         Storage::delete('public/kegiatan/'.$kegiatan->image);
         $kegiatan->delete();
 
-        return redirect()->route('kegiatan')->with('success', 'Berhasil Menghapus Kegiatan');
+        return redirect()->route('kegiatan')->with('success', 'Berhasil Menghapus Unggahan Kegiatan');
     }
 }

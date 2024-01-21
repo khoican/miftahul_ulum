@@ -54,7 +54,7 @@
                     <th scope="row" class="px-6 py-4">
                         <img src="{{ asset('storage/kegiatan/'.$kegiatan->image) }}" alt="" class="w-20 mx-auto rounded">
                     </th>
-                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-wrap">
+                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-wrap capitalize">
                         {{ $kegiatan->title }}
                     </td>
                     <td class="px-6 py-4 text-right">

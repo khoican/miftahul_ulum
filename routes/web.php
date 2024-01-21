@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\PrestasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,4 +49,16 @@ Route::group(['prefix' => 'kegiatan'], function() {
     Route::put('update/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
 
     Route::delete('delete/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.delete');
+});
+
+Route::group(['prefix' => 'prestasi'], function() {
+    Route::get('/', [PrestasiController::class, 'index'])->name('prestasi');
+
+    Route::get('tambah-data', [PrestasiController::class, 'create'])->name('prestasi.create');
+    Route::post('store', [PrestasiController::class, 'store'])->name('prestasi.store');
+
+    Route::get('edit/{id}', [PrestasiController::class, 'edit'])->name('prestasi.edit');
+    Route::put('update/{id}', [PrestasiController::class, 'update'])->name('prestasi.update');
+
+    Route::delete('delete/{id}', [PrestasiController::class, 'destroy'])->name('prestasi.delete');
 });
