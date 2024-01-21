@@ -20,7 +20,6 @@
         </svg>
     </button>
 </div>
-
 @endif
 
 <div class="p-5 border border-slate-300 bg-white rounded-lg shadow-lg mb-5">

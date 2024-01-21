@@ -10,8 +10,9 @@ class Pendidikan extends Model
 {
     use HasFactory, Uuid;
 
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $fillable = [
-        'id',
         'title',
         'logo',
         'pengurus',

@@ -11,8 +11,9 @@ class Kategori extends Model
 {
     use HasFactory, Uuid;
 
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $fillable = [
-        'id',
         'name',
         'image',
     ];

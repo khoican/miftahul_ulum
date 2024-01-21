@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PrestasiController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,16 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.admin.dashboard');
-});
-
-Route::get('/prestasi', function () {
-    return view('pages.admin.prestasi.index');
-});
-Route::get('/prestasi/create', function () {
-    return view('pages.admin.prestasi.create');
-});
-Route::get('/prestasi/edit', function () {
-    return view('pages.admin.prestasi.edit');
 });
 
 Route::get('/pendidikan', function () {
@@ -61,4 +53,18 @@ Route::group(['prefix' => 'prestasi'], function() {
     Route::put('update/{id}', [PrestasiController::class, 'update'])->name('prestasi.update');
 
     Route::delete('delete/{id}', [PrestasiController::class, 'destroy'])->name('prestasi.delete');
+});
+
+Route::group(['prefix' => 'pendidikan'], function() {
+    Route::get('/', [KategoriController::class, 'index'])->name('pendidikan');
+
+    Route::get('tambah-data', [KategoriController::class, 'create'])->name('pendidikan.create');
+    Route::post('store', [KategoriController::class, 'store'])->name('pendidikan.store');
+
+    Route::post('detail/{id?}', [PendidikanController::class, 'store'])->name('pendidikan.detail');
+
+    Route::get('edit/{id}', [KategoriController::class, 'edit'])->name('pendidikan.edit');
+    Route::put('update/{id}', [KategoriController::class, 'update'])->name('pendidikan.update');
+
+    Route::delete('delete/{id}', [KategoriController::class, 'destroy'])->name('pendidikan.delete');
 });

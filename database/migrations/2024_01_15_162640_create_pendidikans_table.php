@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pendidikans', function (Blueprint $table) {
-            $table->uuid()->primary();
+            $table->uuid('id')->primary();
             $table->foreignUuid('kategorisId')->index();
             $table->string('title');
             $table->string('logo');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('file');
             $table->timestamps();
 
-            $table->foreign('kategorisId')->references('uuid')->on('kategoris')->onDelete('cascade');
+            $table->foreign('kategorisId')->references('id')->on('kategoris')->onDelete('cascade');
         });
     }
 
