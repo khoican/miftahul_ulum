@@ -28,7 +28,7 @@
         <div>
             <h1 class="text-white font-semibold text-end">Halaman Kami</h1>
 
-            <div class="text-end text-white flex flex-col text-sm font-light">
+            <div class="text-end text-white flex flex-col text-sm font-light mt-5">
                 <a href="">Beranda</a>
                 <a href="">Taman Kanak-Kanak</a>
                 <a href="">Taman Pendidikan Al-Quran</a>
