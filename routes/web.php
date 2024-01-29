@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::view('/', 'pages.user.home');
+
 Route::group(['prefix' => 'dashboard'], function() {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
