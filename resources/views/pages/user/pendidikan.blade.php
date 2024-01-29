@@ -7,7 +7,8 @@
             <img src="{{ asset('assets/images/logo.png') }}" alt="" class="w-5/6 mx-auto sticky top-24">
         </div>
         <div class="w-3/6 p-10">
-            <h1 class="text-3xl font-semibold capitalize">Taman Kanak-Kanak</h1>
+            <p class="text-xs font-light text-green-500">Taman Kanak-Kanak</p>
+            <h1 class="text-3xl font-semibold capitalize">TK Miftahul Ulum</h1>
 
             <div class="mt-10">
                 <img src="https://source.unsplash.com/random" alt="" class="w-40 h-40 object-cover rounded shadow mx-auto mt-3">
