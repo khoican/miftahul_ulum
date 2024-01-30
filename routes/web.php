@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'pages.user.home');
 Route::view('/pendidikan', 'pages.user.pendidikan');
 Route::view('/kegiatan', 'pages.user.portal');
+Route::view('/detail-kegiatan', 'pages.user.detailPortal');
 
 Route::group(['prefix' => 'dashboard'], function() {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
