@@ -21,26 +21,25 @@
     </section>
 
     <div class="mt-5 flex flex-col md:flex-row gap-5 justify-center items-center md:items-stretch w-full">
-        <a href="" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-2/6">
+        @forelse($kategories as $kategori)
+        <a href="{{ route('home.pendidikan', $kategori->id) }}" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-2/6">
             <div class="p-10 w-40">
-                <img src="{{ asset('assets/images/Asset 1.png') }}" alt="">
+                <img src="{{ asset('storage/kategori/'.$kategori->image) }}" alt="{{ $kategori->name }}">
             </div>
-            <h1 class="font-semibold text-center">Taman Pendidikan Al-Quran</h1>
+            <h1 class="font-semibold text-center">{{ $kategori->name }}</h1>
         </a>
-        <a href="" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-2/6">
-            <div class="p-10 w-40">
-                <img src="{{ asset('assets/images/Asset 2.png') }}" alt="">
-            </div>
-            <h1 class="font-semibold text-center">Taman Kanak-Kanak</h1>
-        </a>
+        @empty
+        <p class="mt-5 text-center text-gray-400">Belum ada pendidikan</p>
+        @endforelse
         <div class="p-5 bg-white rounded shadow w-2/6 flex flex-col justify-between">
             <div>
                 <h1 class="text-lg font-semibold">Pendaftaran</h1>
                 <p class="text-xs font-light text-gray-500">Daftarkan diri anda sekarang</p>
             </div>
             <div class="flex flex-col gap-2">
-                <a href="" class="p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">Taman Pendidikan Al-Quran</a>
-                <a href="" class="p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">Taman Kanak-Kanak</a>
+                @foreach ($pendidikans as $pendidikan)
+                <a href="{{ asset('storage/pendidikan/file/'.$pendidikan->file) }}" class="p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">{{ $pendidikan->title }}</a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -54,13 +53,17 @@
         <div class="w-4/6 min-h-64 bg-white rounded shadow p-5">
             <h1 class="text-lg font-semibold">Prestasi</h1>
             <div class="mt-5">
-                <a href="" class="w-full">
-                    <img src="https://source.unsplash.com/random" alt="" class="max-h-96 w-full object-cover rounded">
+                @if($prestasies)
+                <a href="{{ route('home.detailPrestasi', $prestasies->id) }}" class="w-full">
+                    <img src="{{ asset('storage/prestasi/'.$prestasies->image) }}" alt="{{ $prestasies->title }}" class="max-h-96 w-full object-cover rounded">
                     <div>
-                        <h1 class="font-semibold mt-3 capitalize">Santri TPQ Miftahul Ulum Meraih Medali Emas dalam Lomba Tarti Tingkat Provinsi</h1>
-                        <p class="text-xs font-light text-gray-400">2 Hari yang lalu</p>
+                        <h1 class="font-semibold mt-3 capitalize">{{ $prestasies->title }}</h1>
+                        <p class="text-xs font-light text-gray-400">{{ $prestasies->updated_at->diffForHumans() }}</p>
                     </div>
                 </a>
+                @else
+                <p class="text-center text-gray-400">Belum ada prestasi</p>
+                @endif
             </div>
         </div>
         <div class="w-2/6 min-h-64 bg-white rounded shadow p-5">
@@ -68,45 +71,22 @@
 
             <div class="mt-5 flex flex-col justify-between">
                 <div>
-                    <a href="" class="w-full mt-5 flex items-center gap-5">
+                    @forelse ($kegiatans as $kegiatan)
+                    <a href="{{ route('home.detailKegiatan', $kegiatan->id) }}" class="w-full mt-5 flex items-center gap-5">
                         <div class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
-                            <p class="text-lg font-semibold">20</p>
-                            <p class="text-xs">Jan</p>
+                            <p class="text-lg font-semibold">{{ $kegiatan->updated_at->format('d') }}</p>
+                            <p class="text-xs">{{ $kegiatan->updated_at->format('M') }}</p>
                         </div>
                         <p class="capitalize">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, esse.
+                            {{ $kegiatan->title }}
                         </p>
                     </a>
-                    <a href="" class="w-full mt-5 flex items-center gap-5">
-                        <div class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
-                            <p class="text-lg font-semibold">20</p>
-                            <p class="text-xs">Jan</p>
-                        </div>
-                        <p class="capitalize">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, esse.
-                        </p>
-                    </a>
-                    <a href="" class="w-full mt-5 flex items-center gap-5">
-                        <div class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
-                            <p class="text-lg font-semibold">20</p>
-                            <p class="text-xs">Jan</p>
-                        </div>
-                        <p class="capitalize">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, esse.
-                        </p>
-                    </a>
-                    <a href="" class="w-full mt-5 flex items-center gap-5">
-                        <div class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
-                            <p class="text-lg font-semibold">20</p>
-                            <p class="text-xs">Jan</p>
-                        </div>
-                        <p class="capitalize">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, esse.
-                        </p>
-                    </a>
+                    @empty
+                    <p class="text-center text-gray-400">Belum ada kegiatan</p>
+                    @endforelse
                 </div>
 
-                <a href="" class="mt-3 p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">Lihat Semua Kegiatan</a>
+                <a href="{{ route('home.kegiatan') }}" class="mt-3 p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">Lihat Semua Kegiatan</a>
             </div>
         </div>
     </div>
