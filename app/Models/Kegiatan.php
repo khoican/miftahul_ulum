@@ -15,7 +15,8 @@ class Kegiatan extends Model
     protected $fillable = [
         'title',
         'body',
-        'image'
+        'image',
+        'slug'
     ];
 
 }

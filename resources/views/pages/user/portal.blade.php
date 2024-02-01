@@ -17,10 +17,10 @@
             @forelse ($portals as $portal)
             <div class="max-w-xl xl:w-[24%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 @if (request()->is('prestasi'))
-                <a href="{{ route('home.detailPrestasi',$portal->id) }}">
+                <a href="{{ route('home.detailPrestasi',$portal->slug) }}">
                     <img class="rounded-t-lg" src="{{ asset('storage/prestasi/'.$portal->image) }}" alt="{{ $portal->title }}" />
                 @elseif(request()->is('kegiatan'))
-                <a href="{{ route('home.detailKegiatan',$portal->id) }}">
+                <a href="{{ route('home.detailKegiatan',$portal->slug) }}">
                     <img class="rounded-t-lg" src="{{ asset('storage/kegiatan/'.$portal->image) }}" alt="{{ $portal->title }}" />
                 @endif
                 </a>

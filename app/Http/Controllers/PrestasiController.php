@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prestasi;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,7 @@ class PrestasiController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             'image' => $image->hashName(),
+            'slug' => Str::slug($request->title),
         ]);
 
         return redirect()->route('prestasi')->with('success', 'Berhasil Mengunggah Prestasi');
@@ -70,11 +72,13 @@ class PrestasiController extends Controller
                 'title' => $request->title,
                 'body' => $request->body,
                 'image' => $image->hashName(),
+                'slug' => Str::slug($request->title),
             ]);
         } else {
             $prestasi->update([
                 'title' => $request->title,
                 'body' => $request->body,
+                'slug' => Str::slug($request->title),
             ]);
         }
 

@@ -16,6 +16,7 @@ class Kategori extends Model
     protected $fillable = [
         'name',
         'image',
+        'slug'
     ];
 
     public function pendidikan() {

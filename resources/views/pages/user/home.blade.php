@@ -21,16 +21,17 @@
     </section>
 
     <div class="mt-5 flex flex-col md:flex-row gap-5 justify-center items-center md:items-stretch w-full">
-        @forelse($kategories as $kategori)
-        <a href="{{ route('home.pendidikan', $kategori->id) }}" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-2/6">
+
+        @if($kategories)
+
+        @foreach($kategories as $kategori)
+        <a href="{{ route('home.pendidikan', $kategori->slug) }}" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-2/6">
             <div class="p-10 w-40">
                 <img src="{{ asset('storage/kategori/'.$kategori->image) }}" alt="{{ $kategori->name }}">
             </div>
             <h1 class="font-semibold text-center">{{ $kategori->name }}</h1>
         </a>
-        @empty
-        <p class="mt-5 text-center text-gray-400">Belum ada pendidikan</p>
-        @endforelse
+        @endforeach
         <div class="p-5 bg-white rounded shadow w-2/6 flex flex-col justify-between">
             <div>
                 <h1 class="text-lg font-semibold">Pendaftaran</h1>
@@ -42,6 +43,9 @@
                 @endforeach
             </div>
         </div>
+        @else
+        <p class="mt-5 text-center text-gray-400">Belum ada pendidikan</p>
+        @endif
     </div>
 
     <section class="p-5 rounded bg-green-600 text-white w-full mt-20">
@@ -54,7 +58,7 @@
             <h1 class="text-lg font-semibold">Prestasi</h1>
             <div class="mt-5">
                 @if($prestasies)
-                <a href="{{ route('home.detailPrestasi', $prestasies->id) }}" class="w-full">
+                <a href="{{ route('home.detailPrestasi', $prestasies->slug) }}" class="w-full">
                     <img src="{{ asset('storage/prestasi/'.$prestasies->image) }}" alt="{{ $prestasies->title }}" class="max-h-96 w-full object-cover rounded">
                     <div>
                         <h1 class="font-semibold mt-3 capitalize">{{ $prestasies->title }}</h1>
@@ -72,7 +76,7 @@
             <div class="mt-5 flex flex-col justify-between">
                 <div>
                     @forelse ($kegiatans as $kegiatan)
-                    <a href="{{ route('home.detailKegiatan', $kegiatan->id) }}" class="w-full mt-5 flex items-center gap-5">
+                    <a href="{{ route('home.detailKegiatan', $kegiatan->slug) }}" class="w-full mt-5 flex items-center gap-5">
                         <div class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
                             <p class="text-lg font-semibold">{{ $kegiatan->updated_at->format('d') }}</p>
                             <p class="text-xs">{{ $kegiatan->updated_at->format('M') }}</p>

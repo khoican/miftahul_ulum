@@ -16,6 +16,7 @@ class Prestasi extends Model
         'id',
         'title',
         'body',
-        'image'
+        'image',
+        'slug'
     ];
 }

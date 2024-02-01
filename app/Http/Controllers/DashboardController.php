@@ -25,10 +25,10 @@ class DashboardController extends Controller
         return view('pages.user.home', compact('prestasies', 'kegiatans', 'kategories', 'pendidikans'));
     }
 
-    public function pendidikan(string $id) {
+    public function pendidikan(string $slug) {
         $kategories = Kategori::latest()->get();
-        $pendidikan = Pendidikan::where('kategorisId', $id)->first();
-        $jenis = Kategori::where('id', $id)->first();
+        $pendidikan = Pendidikan::all();
+        $jenis = Kategori::where('slug', $slug)->first();
 
         return view('pages.user.pendidikan', compact('pendidikan', 'kategories', 'jenis'));
     }
@@ -47,16 +47,16 @@ class DashboardController extends Controller
         return view('pages.user.portal', compact('portals', 'kategories'));
     }
 
-    public function detailPrestasi(string $id) {
-        $detail = Prestasi::where('id', $id)->first();
+    public function detailPrestasi(string $slug) {
+        $detail = Prestasi::where('slug', $slug)->first();
         $recomendations = Prestasi::latest()->get();
         $kategories = Kategori::latest()->get();
 
         return view('pages.user.detailPortal', compact('detail', 'recomendations', 'kategories'));
     }
 
-    public function detailKegiatan(string $id) {
-        $detail = Kegiatan::where('id', $id)->first();
+    public function detailKegiatan(string $slug) {
+        $detail = Kegiatan::where('slug', $slug)->first();
         $recomendations = Kegiatan::latest()->get();
         $kategories = Kategori::latest()->get();
 

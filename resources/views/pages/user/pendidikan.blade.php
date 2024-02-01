@@ -2,7 +2,8 @@
 
 @section('content')
 
-    @if($pendidikan)
+    @forelse($pendidikan as $pendidikan)
+    @if($pendidikan->kategorisId == $jenis->id)
     <div class="flex gap-5 mt-5">
         <div class="w-3/6 p-10">
             <img src="{{ asset('storage/pendidikan/'.$pendidikan->logo) }}" alt="" class="w-5/6 mx-auto sticky top-24">
@@ -28,8 +29,9 @@
             </div>
         </div>
     </div>
-    @else
-    <p class="mt-10 text-center text-gray-400">Halaman Sedang Dalam Pengembangan</p>
     @endif
+    @empty
+    <p class="mt-10 text-center text-gray-400">Halaman Sedang Dalam Pengembangan</p>
+    @endforelse
 
 @endsection

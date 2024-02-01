@@ -27,10 +27,10 @@
                 @forelse ($recomendations as $recomendation)
                 <div class="w-5/6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     @if(request()->is('kegiatan*'))
-                    <a href="{{ route('home.detailKegiatan',$recomendation->id) }}">
+                    <a href="{{ route('home.detailKegiatan',$recomendation->slug) }}">
                         <img class="rounded-t-lg" src="{{ asset('storage/kegiatan/'.$recomendation->image) }}" alt="" />
                     @elseif(request()->is('prestasi*'))
-                    <a href="{{ route('home.detailPrestasi',$recomendation->id) }}">
+                    <a href="{{ route('home.detailPrestasi',$recomendation->slug) }}">
                         <img class="rounded-t-lg" src="{{ asset('storage/prestasi/'.$recomendation->image) }}" alt="" />
                     @endif
                     </a>

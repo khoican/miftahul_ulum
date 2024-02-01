@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,7 @@ class KegiatanController extends Controller
             'title' => $request->title,
             'body' => $request->body,
             'image' => $image->hashName(),
+            'slug' => Str::slug($request->title),
         ]);
 
         return redirect()->route('kegiatan')->with('success', 'Berhasil Mengunggah Kegiatan');
@@ -70,11 +72,13 @@ class KegiatanController extends Controller
                 'title' => $request->title,
                 'body' => $request->body,
                 'image' => $image->hashName(),
+                'slug' => Str::slug($request->title),
             ]);
         } else {
             $kegiatan->update([
                 'title' => $request->title,
                 'body' => $request->body,
+                'slug' => Str::slug($request->title),
             ]);
         }
 

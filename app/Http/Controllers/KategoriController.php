@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use App\Models\Pendidikan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -37,6 +38,7 @@ class KategoriController extends Controller
         Kategori::create([
             'name' => $request->name,
             'image' => $image->hashName(),
+            'slug' => Str::slug($request->name),
         ]);
 
         return redirect()->route('pendidikan')->with('success', 'Berhasil Mengunggah Kategori Pendidikan');
@@ -70,10 +72,12 @@ class KategoriController extends Controller
             $kategori->update([
                 'name' => $request->name,
                 'image' => $image->hashName(),
+                'slug' => Str::slug($request->name),
             ]);
         } else {
             $kategori->update([
                 'name' => $request->name,
+                'slug' => Str::slug($request->name),
             ]);
         }
 
