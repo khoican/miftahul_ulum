@@ -22,7 +22,7 @@
 
     <div class="mt-5 flex flex-col md:flex-row gap-5 justify-center items-center md:items-stretch w-full">
 
-        @if($kategories)
+        @if($kategories->count() > 0)
 
         @foreach($kategories as $kategori)
         <a href="{{ route('home.pendidikan', $kategori->slug) }}" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-2/6">

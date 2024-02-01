@@ -29,11 +29,14 @@
             <h1 class="text-white font-semibold text-end">Halaman Kami</h1>
 
             <div class="text-end text-white flex flex-col text-sm font-light mt-5">
-                <a href="">Beranda</a>
-                <a href="">Taman Kanak-Kanak</a>
-                <a href="">Taman Pendidikan Al-Quran</a>
-                <a href="">Prestasi</a>
-                <a href="">Kegiatan</a>
+                <a href="{{ route('home') }}">Beranda</a>
+
+                @foreach ($kategories as $kateogeri)
+                <a href="{{ route('home.pendidikan'.$kateogeri->slug) }}">{{ $kategori->name }}</a>
+                @endforeach
+
+                <a href="{{ route('home.prestasi') }}">Prestasi</a>
+                <a href="{{ route('home.kegiatan') }}">Kegiatan</a>
             </div>
         </div>
     </div>
