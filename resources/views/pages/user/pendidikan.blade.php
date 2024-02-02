@@ -1,14 +1,16 @@
 @extends('layouts.home')
 
+@section('title', $jenis->name)
 @section('content')
 
-    @forelse($pendidikan as $pendidikan)
-    @if($pendidikan->kategorisId == $jenis->id)
-    <div class="flex gap-5 mt-5">
-        <div class="w-3/6 p-10">
+@forelse($pendidikan as $pendidikan)
+@if($pendidikan->kategorisId == $jenis->id)
+
+    <div class="flex flex-col md:flex-row gap-5 mt-5">
+        <div class="w-full md:w-3/6 p-5 md:p-10">
             <img src="{{ asset('storage/pendidikan/'.$pendidikan->logo) }}" alt="" class="w-5/6 mx-auto sticky top-24">
         </div>
-        <div class="w-3/6 p-10">
+        <div class="w-full md:w-3/6 p-5 md:p-10">
             <p class="text-xs font-light text-green-500">{{ $jenis->name}}</p>
             <h1 class="text-3xl font-semibold capitalize">{{ $pendidikan->title }}</h1>
 
@@ -25,7 +27,7 @@
             <div class="mt-10">
                 <h3 class="text-xl font-semibold mb-4">Formulir</h3>
 
-                <a href="{{ asset('storage/pendidikan/file/'.$pendidikan->file) }}" class="p-3 rounded-md text-white bg-green-500 capitalize hover:bg-green-700 transition-all duration-100">Unduh Formulir Pendaftaran</a>
+                <a href="{{ asset('storage/pendidikan/file/'.$pendidikan->file) }}" class="p-3 text-sm rounded-md text-white bg-green-500 capitalize hover:bg-green-700 transition-all duration-100">Unduh Formulir Pendaftaran</a>
             </div>
         </div>
     </div>

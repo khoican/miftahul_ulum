@@ -1,9 +1,10 @@
 @extends('layouts.home')
 
+@section('title', $detail->title)
 @section('content')
 
-    <div class="flex gap-10 w-full mt-14">
-        <div class="w-4/6">
+    <div class="flex flex-col md:flex-row gap-10 w-full mt-14">
+        <div class="w-full md:w-4/6">
             <div class="w-5/6 mx-auto">
                 @if(request()->is('kegiatan*'))
                 <img src="{{ asset('storage/kegiatan/'.$detail->image) }}" alt="" class="object-cover w-full rounded">
@@ -20,18 +21,18 @@
             </div>
         </div>
 
-        <div class="w-2/6">
+        <div class="w-full md:w-2/6">
             <h1 class="text-2xl font-semibold">Berita Terbaru</h1>
 
-            <div class="mt-5 flex flex-col gap-5">
+            <div class="mt-5 flex flex-col justify-center items-center gap-5">
                 @forelse ($recomendations as $recomendation)
                 <div class="w-5/6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     @if(request()->is('kegiatan*'))
                     <a href="{{ route('home.detailKegiatan',$recomendation->slug) }}">
-                        <img class="rounded-t-lg" src="{{ asset('storage/kegiatan/'.$recomendation->image) }}" alt="" />
+                        <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/kegiatan/'.$recomendation->image) }}" alt="" />
                     @elseif(request()->is('prestasi*'))
                     <a href="{{ route('home.detailPrestasi',$recomendation->slug) }}">
-                        <img class="rounded-t-lg" src="{{ asset('storage/prestasi/'.$recomendation->image) }}" alt="" />
+                        <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/prestasi/'.$recomendation->image) }}" alt="" />
                     @endif
                     </a>
                     <div class="p-5">

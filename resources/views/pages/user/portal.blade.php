@@ -1,5 +1,11 @@
 @extends('layouts.home')
 
+@if(request()->is('prestasi'))
+    @section('title', 'Prestasi')
+@elseif(request()->is('kegiatan'))
+    @section('title', 'Kegiatan')
+@endif
+
 @section('content')
 
     <div class="mt-14">
@@ -18,12 +24,13 @@
             <div class="max-w-xl xl:w-[24%] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 @if (request()->is('prestasi'))
                 <a href="{{ route('home.detailPrestasi',$portal->slug) }}">
-                    <img class="rounded-t-lg" src="{{ asset('storage/prestasi/'.$portal->image) }}" alt="{{ $portal->title }}" />
-                @elseif(request()->is('kegiatan'))
-                <a href="{{ route('home.detailKegiatan',$portal->slug) }}">
-                    <img class="rounded-t-lg" src="{{ asset('storage/kegiatan/'.$portal->image) }}" alt="{{ $portal->title }}" />
-                @endif
+                    <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/prestasi/'.$portal->image) }}" alt="{{ $portal->title }}" />
                 </a>
+                @elseif(request()->is('kegiatan'))
+                <a href="{{ route('home.detailKegiatan',$portal->slug) }}" class="overflow-hidden">
+                    <img class="rounded-t-lg h-52 w-full object-cover" src="{{ asset('storage/kegiatan/'.$portal->image) }}" alt="{{ $portal->title }}"/>
+                </a>
+                @endif
                 <div class="p-5">
                     <a href="#">
                         <h5 class="mb-2 text-lg font-medium tracking-tight text-gray-900 dark:text-white capitalize">{{ $portal->title }}</h5>

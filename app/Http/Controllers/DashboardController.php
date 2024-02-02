@@ -49,7 +49,7 @@ class DashboardController extends Controller
 
     public function detailPrestasi(string $slug) {
         $detail = Prestasi::where('slug', $slug)->first();
-        $recomendations = Prestasi::latest()->get();
+        $recomendations = Prestasi::latest()->paginate(3);
         $kategories = Kategori::latest()->get();
 
         return view('pages.user.detailPortal', compact('detail', 'recomendations', 'kategories'));
@@ -57,7 +57,7 @@ class DashboardController extends Controller
 
     public function detailKegiatan(string $slug) {
         $detail = Kegiatan::where('slug', $slug)->first();
-        $recomendations = Kegiatan::latest()->get();
+        $recomendations = Kegiatan::latest()->paginate(3);
         $kategories = Kategori::latest()->get();
 
         return view('pages.user.detailPortal', compact('detail', 'recomendations', 'kategories'));

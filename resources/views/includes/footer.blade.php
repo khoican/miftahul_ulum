@@ -1,5 +1,5 @@
 <footer class="bg-green-700">
-    <div class="max-w-screen-xl mx-auto py-10 px-10 flex justify-between">
+    <div class="max-w-screen-xl mx-auto py-10 px-10 flex flex-col md:flex-row justify-between">
         <div class="flex flex-col justify-between">
             <div class="inline-flex gap-5">
                 <img src="{{ asset('assets/images/logo.png') }}" alt="" class="h-10">
@@ -25,14 +25,14 @@
             </div>
         </div>
 
-        <div>
-            <h1 class="text-white font-semibold text-end">Halaman Kami</h1>
+        <div class="mt-5 md:mt-0">
+            <h1 class="text-white font-semibold text-start md:text-end">Halaman Kami</h1>
 
-            <div class="text-end text-white flex flex-col text-sm font-light mt-5">
+            <div class="text-start md:text-end text-white flex flex-col text-sm font-light mt-3 md:mt-5">
                 <a href="{{ route('home') }}">Beranda</a>
 
-                @foreach ($kategories as $kateogeri)
-                <a href="{{ route('home.pendidikan'.$kateogeri->slug) }}">{{ $kategori->name }}</a>
+                @foreach ($kategories as $kategori)
+                <a href="{{ route('home.pendidikan', $kategori->slug) }}">{{ $kategori->name }}</a>
                 @endforeach
 
                 <a href="{{ route('home.prestasi') }}">Prestasi</a>

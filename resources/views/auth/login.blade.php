@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Login</title>
     @include('includes.head')
 </head>
 <body>
     <div class="flex justify-center items-center h-screen w-screen bg-green-50">
-        <main class="w-1/3 bg-white p-10 rounded-lg shadow">
+        <main class="w-2/3 md:w-1/3 bg-white p-10 rounded-lg shadow">
             <div class="mb-5">
                 <h1 class="text-3xl font-bold">Login</h1>
                 <p class="text-sm font-light text-gray-500">Masukkan username dan password anda</p>
