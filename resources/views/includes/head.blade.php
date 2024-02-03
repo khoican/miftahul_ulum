@@ -11,6 +11,11 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="description" content="YPI Miftahul Ulum">
 <meta name="keywords" content="YPI Miftahul Ulum">
+<meta name="keywords" content="Miftahul Ulum">
+<meta name="keywords" content="miftahul ulum">
+<meta name="keywords" content="miftahul">
+<meta name="keywords" content="miftahul ulum bangsalsari">
+<meta name="keywords" content="miftahul ulum bangsal">
 <meta name="copyright" content="Ibnu Khoirul Prasetyo">
 <meta name="robots" content="all">
 <meta name="author" content="Ibnu Khoirul Prasetyo">

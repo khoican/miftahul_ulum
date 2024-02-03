@@ -39,6 +39,11 @@
         <li>
             <a href="{{ route('home.kegiatan') }}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('kegiatan*') ? 'md:text-green-600' : 'text-gray-900'}}">Kegiatan</a>
         </li>
+        @if (Auth::user())
+        <li>
+            <a href="{{ route('dashboard') }}" class="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-500 md:p-0 dark:text-white md:dark:hover:text-green-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent {{ request()->is('kegiatan*') ? 'md:text-green-600' : 'text-gray-900'}}">Admin Panel</a>
+        </li>
+        @endif
       </ul>
     </div>
   </div>
