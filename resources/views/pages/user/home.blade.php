@@ -11,7 +11,7 @@
         <div class="md:w-4/6">
             <p class="text-green-600">Selamat Datang</p>
             <h1 class="text-4xl font-semibold">Sejarah Singkat YPI Miftahul Ulum</h1>
-            <p class="text-gray-500 mt-5 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime dolor, hic explicabo assumenda facere eveniet incidunt a saepe ipsam consectetur ratione totam quis provident adipisci mollitia veniam impedit exercitationem magni vitae harum, inventore consequatur voluptatum. Magnam dolor aliquid dolorem impedit quisquam sint nesciunt est deserunt animi error ab delectus rerum officiis modi nam, nulla incidunt temporibus ratione! Officia iste id voluptas, accusantium cumque veritatis voluptatem, a quibusdam nihil hic soluta minus at ea porro! Suscipit quisquam, ab beatae amet nihil asperiores ducimus minus fugiat illum laudantium est, temporibus libero dignissimos blanditiis inventore! Ab facilis blanditiis cupiditate minus quod numquam dolorum.</p>
+            <p class="text-gray-500 mt-5 text-justify">{{ $histori->body }}</p>
         </div>
     </div>
 
@@ -25,7 +25,8 @@
         @if($kategories->count() > 0)
 
         @foreach($kategories as $kategori)
-        <a href="{{ route('home.pendidikan', $kategori->slug) }}" class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-full md:w-2/6">
+        <a href="{{ route('home.pendidikan', $kategori->slug) }}"
+            class="p-5 bg-white rounded shadow flex flex-col justify-center items-center w-full md:w-2/6">
             <div class="p-10 w-40">
                 <img src="{{ asset('storage/kategori/'.$kategori->image) }}" alt="{{ $kategori->name }}">
             </div>
@@ -39,7 +40,9 @@
             </div>
             <div class="flex flex-col gap-2 mt-5">
                 @foreach ($pendidikans as $pendidikan)
-                <a href="{{ asset('storage/pendidikan/file/'.$pendidikan->file) }}" class="p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">{{ $pendidikan->title }}</a>
+                <a href="{{ asset('storage/pendidikan/file/'.$pendidikan->file) }}"
+                    class="p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">{{
+                    $pendidikan->title }}</a>
                 @endforeach
             </div>
         </div>
@@ -59,7 +62,8 @@
             <div class="mt-5">
                 @if($prestasies)
                 <a href="{{ route('home.detailPrestasi', $prestasies->slug) }}" class="w-full">
-                    <img src="{{ asset('storage/prestasi/'.$prestasies->image) }}" alt="{{ $prestasies->title }}" class="max-h-96 w-full object-cover rounded">
+                    <img src="{{ asset('storage/prestasi/'.$prestasies->image) }}" alt="{{ $prestasies->title }}"
+                        class="max-h-96 w-full object-cover rounded">
                     <div>
                         <h1 class="font-semibold mt-3 capitalize">{{ $prestasies->title }}</h1>
                         <p class="text-xs font-light text-gray-400">{{ $prestasies->updated_at->diffForHumans() }}</p>
@@ -76,8 +80,10 @@
             <div class="mt-5 flex flex-col justify-between">
                 <div>
                     @forelse ($kegiatans as $kegiatan)
-                    <a href="{{ route('home.detailKegiatan', $kegiatan->slug) }}" class="w-full mt-5 flex items-center gap-5">
-                        <div class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
+                    <a href="{{ route('home.detailKegiatan', $kegiatan->slug) }}"
+                        class="w-full mt-5 flex items-center gap-5">
+                        <div
+                            class="w-14 p-4 bg-yellow-300 rounded flex flex-col justify-center items-center text-white">
                             <p class="text-lg font-semibold">{{ $kegiatan->updated_at->format('d') }}</p>
                             <p class="text-xs">{{ $kegiatan->updated_at->format('M') }}</p>
                         </div>
@@ -90,7 +96,9 @@
                     @endforelse
                 </div>
 
-                <a href="{{ route('home.kegiatan') }}" class="mt-3 p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">Lihat Semua Kegiatan</a>
+                <a href="{{ route('home.kegiatan') }}"
+                    class="mt-3 p-3 rounded-md text-white bg-green-500 text-xs capitalize hover:bg-green-700 transition-all duration-100">Lihat
+                    Semua Kegiatan</a>
             </div>
         </div>
     </div>

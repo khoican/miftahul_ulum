@@ -7,6 +7,8 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoriController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\PendidikanController;
 
 /*
@@ -83,6 +85,17 @@ Route::group(['middleware' => 'auth'], function () {
 
             Route::delete('delete/{id}', [KategoriController::class, 'destroy'])->name('pendidikan.delete');
         });
+
+        Route::group(['prefix' => 'histori'], function() {
+            Route::get('/', [HistoriController::class, 'edit'])->name('histori');
+            Route::put('/update', [HistoriController::class, 'update'])->name('histori.update');
+        });
+
+        Route::group(['prefix' => 'kontak'], function() {
+            Route::get('/', [KontakController::class, 'edit'])->name('kontak');
+            Route::put('/update', [KontakController::class, 'update'])->name('kontak.update');
+        });
+
     });
 });
 

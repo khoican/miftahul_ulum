@@ -22,15 +22,18 @@
 
 <title>
     @hasSection('title')
-        YPI Miftahul Ulum - @yield('title')
+    YPI Miftahul Ulum - @yield('title')
     @else
-        YPI Miftahul Ulum
+    YPI Miftahul Ulum
     @endif
 </title>
 
 <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/logo.png') }}">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{{--
+<link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
 
-<script src="{{ asset('build/assets/app-rQmxli1X.js') }}"></script>
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+{{-- <script src="{{ asset('build/assets/app-rQmxli1X.js') }}"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 <script src="{{ asset('assets/vendor/ckeditor.js') }}"></script>
